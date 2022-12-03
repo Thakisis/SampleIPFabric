@@ -1197,10 +1197,10 @@
   resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.5.4.tgz#6d26df992a32ea5532a1e7b732f5485857116b00"
   integrity sha512-dzcGxqL1kPKociXK+pcq5ley77cWDWiphfv8OREv8dAZS1dKDTJq1zVy7ZD5ocyMtKMZw/7AcOdIJ1H80Dp56g==
 
-"@react-three/drei@^9.40.0":
-  version "9.40.0"
-  resolved "https://registry.npmjs.org/@react-three/drei/-/drei-9.40.0.tgz#4b0987fe8e7a7360b4d5ea6d1d0bcf932df98248"
-  integrity sha512-v+7l62c7BIXS172E1TiEOeXXpZnfoJNsdjZK5h0TxKVXsbhs5t6rMAlDKhgWbZ96rDzgNrSIPv+GMzlG/rkFdQ==
+"@react-three/drei@^9.46.0":
+  version "9.46.0"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-9.46.0.tgz#9b6970818410fc890e99971aa290d820a17085da"
+  integrity sha512-msde3VO6HyXyFVqM1qJoGaFGUBHZy+3+sT4JTqkM4XTplmHALSglPZkcSB7z2gENoScMnHwF3a3MPl/v0AGgLA==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
@@ -1216,7 +1216,7 @@
     stats.js "^0.17.0"
     suspend-react "^0.0.8"
     three-mesh-bvh "^0.5.15"
-    three-stdlib "^2.17.3"
+    three-stdlib "^2.18.1"
     troika-three-text "^0.46.4"
     utility-types "^3.10.0"
     zustand "^3.5.13"
@@ -4923,6 +4923,23 @@ three-stdlib@^2.17.3:
   version "2.17.3"
   resolved "https://registry.npmjs.org/three-stdlib/-/three-stdlib-2.17.3.tgz#f92d322810d81379a51344b21e0a2e941b84cb8f"
   integrity sha512-k2VwPXi75ySy0fxPIeUk3mLkj3/j+sCFK4g9Kp5J7w0PUh6qrCdhah7L6+On6fW5mBdVtML4Q5yEyN1R0Cfvqw==
+  dependencies:
+    "@babel/runtime" "^7.16.7"
+    "@types/offscreencanvas" "^2019.6.4"
+    "@webgpu/glslang" "^0.0.15"
+    chevrotain "^10.1.2"
+    draco3d "^1.4.1"
+    fflate "^0.6.9"
+    ktx-parse "^0.4.5"
+    mmd-parser "^1.0.4"
+    opentype.js "^1.3.3"
+    potpack "^1.0.1"
+    zstddec "^0.0.2"
+
+three-stdlib@^2.18.1:
+  version "2.20.2"
+  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.20.2.tgz#91ad61710db11666b2edba6649f62e21b8d8ea8f"
+  integrity sha512-e7QyYf9oKBtnWL8AYcDUuNG11s+aWZjExJ/zvXx63Ng2V93m2kS2EmfLt90QmouWjfmamegXx9g6qULjuAlhEg==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@types/offscreencanvas" "^2019.6.4"

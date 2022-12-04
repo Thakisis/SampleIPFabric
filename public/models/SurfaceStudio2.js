@@ -10,9 +10,6 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('/SurfaceStudio2-transformed.glb')
   return (
     <group ref={group} {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group rotation={[Math.PI / 2, 0, 0]} scale={0.01} />
-      </group>
       <mesh geometry={nodes.Base.geometry} material={materials.trackpad} />
       <mesh geometry={nodes.Radiator.geometry} material={nodes.Radiator.material} />
       <mesh geometry={nodes.Rectangle020.geometry} material={nodes.Rectangle020.material} />
@@ -46,7 +43,6 @@ export default function Model(props) {
       <mesh geometry={nodes.Box007.geometry} material={nodes.Box007.material} />
       <mesh geometry={nodes.Monitor_base.geometry} material={nodes.Monitor_base.material} />
       <mesh geometry={nodes.Monitor.geometry} material={nodes.Monitor.material} />
-      <mesh geometry={nodes.Monitor001.geometry} material={nodes.Monitor001.material} />
       <mesh geometry={nodes.Glass.geometry} material={materials.Screen} />
       <mesh geometry={nodes.Legs.geometry} material={materials.metal} />
       <mesh geometry={nodes.Mesh035.geometry} material={nodes.Mesh035.material} />
@@ -58,7 +54,7 @@ export default function Model(props) {
       <mesh geometry={nodes.Mesh040.geometry} material={nodes.Mesh040.material} />
       <mesh geometry={nodes.Mesh040_1.geometry} material={nodes.Mesh040_1.material} />
       <mesh geometry={nodes.Mesh040_2.geometry} material={materials.Sterzhen} />
-      <mesh geometry={nodes.Mesh040_3.geometry} material={materials['Sterzhen end']} />
+      <mesh geometry={nodes.Mesh040_3.geometry} material={nodes.Mesh040_3.material} />
       <mesh geometry={nodes.ScreenZone.geometry} material={materials['Material.001']} />
     </group>
   )

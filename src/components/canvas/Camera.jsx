@@ -19,9 +19,15 @@ export const Camera = () => {
         ref={cameraRef}
         makeDefault
         position={[6, 2.5, 10]}
-        rotation={[-.19, .5, .1]}
+        rotation={[-.19, .65, .1]}
 
         fov={25} />
+      <OrbitControls
+        maxAzimuthAngle={.95}
+        minAzimuthAngle={.65}
+        minPolarAngle={1.35}
+        maxPolarAngle={1.35}
+      />
 
     </>
 

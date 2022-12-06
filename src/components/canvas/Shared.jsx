@@ -8,9 +8,11 @@ export function Shared(props) {
 
 
 
-  if (totalItems !== loadedItems) {
 
-    return <CubePreloader percent={totalLoaded / totalSize * 100} />
+  if (totalItems !== loadedItems || totalItems === 0) {
+
+
+    return <CubePreloader percent={totalItems !== 0 ? totalLoaded / totalSize * 100 : 0} />
   }
 
   return <SurfaceStudio></SurfaceStudio>

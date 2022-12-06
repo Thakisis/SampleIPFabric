@@ -49,6 +49,15 @@ export const useStore = create((set, get) => ({
 
         )
           .then((gltf) => {
+            gltf.scene.traverse(function (node) {
+
+              if (node.isMesh) {
+                node.castShadow = true
+                node.receiveShadow = true
+              }
+
+            })
+
             updateLoaded({ index: index, isComplete: true, scene: gltf.scene, modelName: model.Model })
           })
       })

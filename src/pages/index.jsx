@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { useStore } from '@/Store'
 
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
@@ -10,11 +9,7 @@ const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
 
 // Dom components go here
 export default function Page(props) {
-  const { initPreload } = useStore(state => state.Actions)
-  useEffect(() => {
 
-    initPreload()
-  }, [initPreload])
   return (
     <>a </>
   )

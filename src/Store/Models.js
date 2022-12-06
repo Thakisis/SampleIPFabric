@@ -1,7 +1,7 @@
 export const Models = [
   {
     modelName: 'MicrosoftStudio',
-    modelFile: 'SurfaceStudio.glb',
+    modelFile: 'SurfaceStudio2.glb',
     modelSize: 721440,
     preload: true
   },

@@ -1,20 +1,16 @@
-import { useMemo } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
-import { OrbitControls, Preload, Environment, Html, AccumulativeShadows, RandomizedLight, Center, Bounds } from '@react-three/drei'
-import { Shared } from './Shared'
 
+import { Canvas, useFrame } from '@react-three/fiber'
+import { OrbitControls, Environment, PerspectiveCamera } from '@react-three/drei'
+import { Shared } from './Shared'
+import { Camera } from './Camera'
 
 export default function Scene({ children, ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
+  const freecamera = 1
 
   return (
-    <Canvas shadows camera={{
-      position: [7.759224992186554, 2.4961505835651057, 8.524320666068103]
-      ,
-      fov: 25,
-      lookat: [1, 10, 0]
-    }}
-    >
+    <Canvas shadows  >
+      <Camera></Camera>
       <Shared />
 
       <mesh castShadow position={[0, .25, 1]}>
@@ -22,7 +18,7 @@ export default function Scene({ children, ...props }) {
         <meshStandardMaterial color="lightblue" />
       </mesh>
       <Environment preset="city" />
-      ´<OrbitControls></OrbitControls>
+
     </Canvas >
   )
 }

@@ -69,7 +69,7 @@ export const useStore = create((set, get) => ({
       //update each Element loaded size
       set(({ ModelsArray }) => {
 
-        const updatedModel = isComplete ? { ...ModelsArray[index], isLoaded: true, loaded: ModelsArray[index].size } : { ...ModelsArray[index], loaded: sizeLoaded }
+        const updatedModel = isComplete ? { ...ModelsArray[index], isLoaded: true } : { ...ModelsArray[index], loaded: sizeLoaded }
 
         return { ModelsArray: [...ModelsArray.slice(0, index), { ...updatedModel }, ...ModelsArray.slice(index + 1)] }
       })
@@ -83,7 +83,7 @@ export const useStore = create((set, get) => ({
         }
       }))
       if (isComplete) {
-        console.log("complete")
+
         set(({ ModelsState }) => {
           return ({ ModelsState: { ...ModelsState, [modelName]: { ...ModelsState[modelName], scene: scene } } })
         })

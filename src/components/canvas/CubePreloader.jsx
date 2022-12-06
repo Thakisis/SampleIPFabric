@@ -7,7 +7,8 @@ export function CubePreloader({ percent, ...props }) {
 
     initPreload()
   }, [initPreload])
-  const size = percent / 100
+  const size = percent <= 100 ? percent / 100 : 0
+
   return (
     <group {...props}>
       <mesh position={[0, size / 2, 0]}>

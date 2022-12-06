@@ -1,14 +1,14 @@
 export const Models = [
   {
     modelName: 'MicrosoftStudio',
-    modelFile: 'SurfaceStudio2.glb',
-    modelSize: 721440,
+    modelFile: 'SurfaceStudio.glb',
+    modelSize: 790480,
     preload: true
   },
   {
     modelName: 'Computer',
     modelFile: 'ComputerNetwork.glb',
-    modelSize: 102056,
+    modelSize: 1090004,
     preload: true
   },
   {

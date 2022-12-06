@@ -7,7 +7,7 @@ export const Models = [
   },
   {
     modelName: 'Computer',
-    modelFile: 'Computer.glb',
+    modelFile: 'ComputerNetwork.glb',
     modelSize: 102056,
     preload: true
   },

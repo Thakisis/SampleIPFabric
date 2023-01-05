@@ -10,215 +10,25 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF('/ComputerNetwork-transformed.glb')
   return (
     <group ref={group} {...props} dispose={null}>
-      <group position={[0, -0.1, 0]}>
-        <group position={[0, 0, 0]}>
-          <mesh
-            geometry={nodes.cpu_gray_metallic_0.geometry}
-            material={nodes.cpu_gray_metallic_0.material}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu_gray_stiker_0.geometry}
-            material={materials['Material.002']}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu_gray_0.geometry}
-            material={materials['Material.001']}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu_green_0.geometry}
-            material={nodes.cpu_green_0.material}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu_metallic_0.geometry}
-            material={materials['metallic.001']}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu_white_0.geometry}
-            material={nodes.cpu_white_0.material}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.cpu001_gray_metallic_0.geometry}
-            material={nodes.cpu001_gray_metallic_0.material}
-            position={[0.02, 0.13, -0.05]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.Cube_screen_0.geometry}
-            material={materials.Screen}
-            position={[0.16, 0.48, 0.07]}
-            rotation={[-1.65, 0, -Math.PI / 2]}
-            scale={[0.12, 0.13, 0.11]}
-          />
-          <mesh
-            geometry={nodes.flopy_vintage_1_0.geometry}
-            material={nodes.flopy_vintage_1_0.material}
-            position={[0.02, 0.13, 0.08]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.flopy001_vintage_1_0.geometry}
-            material={nodes.flopy001_vintage_1_0.material}
-            position={[0.02, 0.13, 0.08]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.flopy002_vintage_1_0.geometry}
-            material={nodes.flopy002_vintage_1_0.material}
-            position={[0.02, 0.13, 0.08]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <group position={[0, 0.02, 0]}>
-            <group position={[0.29, 0.15, 0.37]} rotation={[-2.87, 0, -Math.PI / 2]} scale={[0.18, 0.18, 0.18]}>
-              <mesh geometry={nodes.cpu003_gray_stiker_0.geometry} material={materials.gray_stiker} />
-              <mesh geometry={nodes.cpu003_green_0.geometry} material={nodes.cpu003_green_0.material} />
-            </group>
-            <group position={[-0.3, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane001_vintage_2_0.geometry} material={nodes.Plane001_vintage_2_0.material} />
-            </group>
-            <group position={[-0.03, 0.11, 0.55]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane002_white_0.geometry} material={nodes.Plane002_white_0.material} />
-            </group>
-            <group position={[-0.27, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane003_vintage_2_0.geometry} material={nodes.Plane003_vintage_2_0.material} />
-            </group>
-            <group position={[-0.23, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane004_white001_0.geometry} material={nodes.Plane004_white001_0.material} />
-            </group>
-            <group position={[-0.18, 0.13, 0.46]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane005_white_0.geometry} material={nodes.Plane005_white_0.material} />
-            </group>
-            <group position={[-0.22, 0.13, 0.46]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane006_vintage_2_0.geometry} material={nodes.Plane006_vintage_2_0.material} />
-            </group>
-            <group position={[-0.17, 0.13, 0.49]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane007_white_0.geometry} material={nodes.Plane007_white_0.material} />
-            </group>
-            <group position={[0.2, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane008_white_0.geometry} material={nodes.Plane008_white_0.material} />
-            </group>
-            <group position={[-0.16, 0.12, 0.52]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane009_white001_0.geometry} material={nodes.Plane009_white001_0.material} />
-            </group>
-            <group position={[-0.21, 0.13, 0.49]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane010_vintage_2_0.geometry} material={nodes.Plane010_vintage_2_0.material} />
-            </group>
-            <group position={[-0.21, 0.12, 0.52]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane011_vintage_2_0.geometry} material={nodes.Plane011_vintage_2_0.material} />
-            </group>
-            <group position={[0.14, 0.12, 0.52]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane012_vintage_2_0.geometry} material={nodes.Plane012_vintage_2_0.material} />
-            </group>
-            <group position={[0.23, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane013_white_0.geometry} material={nodes.Plane013_white_0.material} />
-            </group>
-            <group position={[0.14, 0.13, 0.48]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane014_vintage_2_0.geometry} material={nodes.Plane014_vintage_2_0.material} />
-            </group>
-            <group position={[0.26, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane015_white_0.geometry} material={nodes.Plane015_white_0.material} />
-            </group>
-            <group position={[0.29, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane016_vintage_2_0.geometry} material={nodes.Plane016_vintage_2_0.material} />
-            </group>
-            <group position={[0.21, 0.11, 0.54]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane017_white_0.geometry} material={nodes.Plane017_white_0.material} />
-            </group>
-            <group position={[0.29, 0.12, 0.53]} rotation={[-1.35, 0, 0]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane018_vintage_2_0.geometry} material={nodes.Plane018_vintage_2_0.material} />
-            </group>
-            <group position={[-0.23, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane019_vintage_2_0.geometry} material={nodes.Plane019_vintage_2_0.material} />
-            </group>
-            <group position={[0.26, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane020_vintage_2_0.geometry} material={nodes.Plane020_vintage_2_0.material} />
-            </group>
-            <group position={[0.23, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane021_vintage_2_0.geometry} material={nodes.Plane021_vintage_2_0.material} />
-            </group>
-            <group position={[0.2, 0.14, 0.43]} rotation={[-1.35, 0, -Math.PI / 2]} scale={[0.02, 0.03, 0.02]}>
-              <mesh geometry={nodes.Plane022_vintage_2_0.geometry} material={nodes.Plane022_vintage_2_0.material} />
-            </group>
-            <mesh
-              geometry={nodes.kewboard_vintage_2_0.geometry}
-              material={materials.vintage_2}
-              position={[-0.02, 0.08, 0.51]}
-              rotation={[-1.35, 0, -Math.PI / 2]}
-              scale={[0.18, 0.33, 0.18]}
-            />
-            <mesh
-              geometry={nodes.kewboard_white_0.geometry}
-              material={materials['Material.004']}
-              position={[-0.02, 0.08, 0.51]}
-              rotation={[-1.35, 0, -Math.PI / 2]}
-              scale={[0.18, 0.33, 0.18]}
-            />
-          </group>
-          <mesh
-            geometry={nodes.monitor_black_0.geometry}
-            material={materials.Buttons}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.monitor_gray_0.geometry}
-            material={nodes.monitor_gray_0.material}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.monitor_screen_0.geometry}
-            material={materials.screen}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.monitor_vintage_2_0.geometry}
-            material={nodes.monitor_vintage_2_0.material}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.monitor_white001_0.geometry}
-            material={nodes.monitor_white001_0.material}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-          <mesh
-            geometry={nodes.vent_monitor_gray_0.geometry}
-            material={materials.gray}
-            position={[0, 0.48, -0.07]}
-            rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
-            scale={[0.18, 0.18, 0.18]}
-          />
-        </group>
-      </group>
+      <mesh geometry={nodes.cpu_gray_metallic_0.geometry} material={materials.gray_metallic} />
+      <mesh geometry={nodes.cpu_gray_stiker_0.geometry} material={materials['Material.002']} />
+      <mesh geometry={nodes.cpu_gray_0.geometry} material={materials['Material.001']} />
+      <mesh geometry={nodes.cpu_green_0.geometry} material={materials['Material.005']} />
+      <mesh geometry={nodes.cpu001_gray_metallic_0.geometry} material={materials['metallic.001']} />
+      <mesh geometry={nodes.Cube_screen_0.geometry} material={materials.Screen} />
+      <mesh geometry={nodes.flopy_vintage_1_0.geometry} material={nodes.flopy_vintage_1_0.material} />
+      <mesh geometry={nodes.flopy001_vintage_1_0.geometry} material={nodes.flopy001_vintage_1_0.material} />
+      <mesh geometry={nodes.flopy002_vintage_1_0.geometry} material={materials.vintage_1} />
+      <mesh geometry={nodes.cpu003_gray_stiker_0.geometry} material={materials.gray_stiker} />
+      <mesh geometry={nodes.kewboard_vintage_2_0.geometry} material={materials.vintage_2} />
+      <mesh geometry={nodes.kewboard_white_0.geometry} material={nodes.kewboard_white_0.material} />
+      <mesh geometry={nodes.Plane015_white_0.geometry} material={materials.keys} />
+      <mesh geometry={nodes.Plane017_white_0.geometry} material={nodes.Plane017_white_0.material} />
+      <mesh geometry={nodes.monitor_black_0.geometry} material={materials.Buttons} />
+      <mesh geometry={nodes.monitor_screen_0.geometry} material={materials.screen} />
+      <mesh geometry={nodes.monitor_vintage_2_0.geometry} material={nodes.monitor_vintage_2_0.material} />
+      <mesh geometry={nodes.monitor_white001_0.geometry} material={nodes.monitor_white001_0.material} />
+      <mesh geometry={nodes.vent_monitor_gray_0.geometry} material={nodes.vent_monitor_gray_0.material} />
     </group>
   )
 }

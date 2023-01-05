@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 
 //add the needed fields for loader
 export function createLoaderArray(list) {
@@ -35,4 +36,3 @@ export function initPreloadState(list) {
   }
   return { totalItems: 0, loadedItems: 0, totalSize: 0, totalLoaded: 0 }
 }
-

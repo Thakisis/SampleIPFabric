@@ -9,7 +9,24 @@ const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
 
 // Dom components go here
 export default function Page(props) {
+  useEffect(() => {
 
+
+
+    const domain = 'ladystorm.ddns.net'
+    const cookies = document.cookie.split(";")
+    for (let i = 0; i < cookies.length; i++) {
+
+      const cookie = cookies[i].trim()
+      console.log('cookie')
+      document.cookie = `${cookie}=;domain=${domain}; expires=Thu, 01 Jan 1980 00:00:00 GMT`
+      //window.location.replace("https://www.tpeoficial.com/?by=tpeoficial/clear/cookies-deleted")
+      //document.cookie = `foo=bar;domain=${domain};`
+    }
+
+
+
+  })
   return (
     <>a </>
   )

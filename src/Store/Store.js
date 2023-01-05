@@ -1,9 +1,18 @@
 import create from 'zustand'
-import { convertLoaderList, createLoaderArray, initPreloadState } from './StoreUtils'
+import { loadModels } from './ThreeUtils'
+
+// Animations js contain all animation of 3D objects
+import { animate, addAnimation } from './Animations'
+
+// list of models
 import { Models } from './Models'
-// three modules for load models
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
+//initialize InitialState
+import { convertLoaderList, createLoaderArray, initPreloadState } from './StoreUtils'
+// createScene
+
+import { createScene } from './CreateScene'
+
+
 
 //dev tools for Zustand
 import { mountStoreDevtool } from 'simple-zustand-devtools'
@@ -17,64 +26,60 @@ export const useStore = create((set, get) => ({
   ModelsArray: createLoaderArray(Models),
   ModelsState: convertLoaderList(Models),
   PreloadState: initPreloadState(Models),
+  SceneSettings: {},
+  ObjectsRef: {},
+  animations: {},
   canRender: false,
   Actions: {
 
     initPreload() {
       //init load models
-
-      const { preloadModels } = get().Actions
-      preloadModels()
-
-    }
-    ,
-    preloadModels() {
-      const { setLoadedModel, setLoadingModel, updateLoaded } = get().Actions
+      const { updateLoaded } = get().Actions
       const modelsArray = get().ModelsArray
-      //Three loader
-      const loader = new GLTFLoader()
-      const dracoLoader = new DRACOLoader()
-      dracoLoader.setDecoderPath('/libs/draco/')
-      loader.setDRACOLoader(dracoLoader)
-
-      //iterate Array
-      modelsArray.map((model, index) => {
-
-        loader.loadAsync(`/models/${model.url}`,
-          //progress function
-          (xhr) => {
-            updateLoaded({ index: index, sizeLoaded: xhr.loaded })
-          },
-
-
-        )
-          .then((gltf) => {
-            gltf.scene.traverse(function (node) {
-
-              if (node.isMesh) {
-                node.castShadow = true
-                node.receiveShadow = true
-              }
-
-            })
-
-            updateLoaded({ index: index, isComplete: true, scene: gltf.scene, modelName: model.Model })
-          })
+      loadModels({ modelsArray, onUpdateLoaded: updateLoaded })
+    },
+    initScene(scene) {
+      const addInstance = get().Actions.addInstance
+      const models = get().ModelsState
+      set(({ SceneSettings }) => {
+        return ({ SceneSettings: { ...SceneSettings, scene } })
       })
+      createScene(scene, models, addInstance)
+      set(() => { return ({ canRender: true }) })
+      const ObjectsRef = get().ObjectsRef
+      addAnimation(ObjectsRef)
 
     },
-    //update each progress event and onLoaded
+    renderFrame(props) {
+
+      if (!get().canRender)
+        return
+      const ObjectsRef = get().ObjectsRef
+      animate(ObjectsRef, props)
+
+    },
+    initAnimations(scene) {
+
+      const models = get().ObjectsRef
+      set(({ SceneSettings }) => {
+        return ({ SceneSettings: { ...SceneSettings, scene } })
+      })
+      createScene(scene, models, addInstance)
+    },
+
+
+    // update each progress event and onLoaded and launch createScene 
+    // when load is complete. Todo: load by stages options:block pages befoe 3D is loaded or load full contente 3d
+
     updateLoaded({ index, sizeLoaded, isComplete, modelName, scene }) {
 
       //update each Element loaded size
       set(({ ModelsArray }) => {
-
         const updatedModel = isComplete ? { ...ModelsArray[index], isLoaded: true } : { ...ModelsArray[index], loaded: sizeLoaded }
-
         return { ModelsArray: [...ModelsArray.slice(0, index), { ...updatedModel }, ...ModelsArray.slice(index + 1)] }
       })
+
       //update total loaded bytes
-      //set(({ PreloadState, ModelsArray }) => ({ PreloadState: { ...PreloadState, totalLoaded: ModelsArray.reduce((acum, model) => acum += model.loaded, 0) } }))
       set(({ PreloadState, ModelsArray }) => ({
         PreloadState: {
           ...PreloadState, ...ModelsArray.reduce((acum, model) =>
@@ -82,6 +87,8 @@ export const useStore = create((set, get) => ({
             { totalLoaded: 0, loadedItems: 0 })
         }
       }))
+
+      // mark model as complete
       if (isComplete) {
 
         set(({ ModelsState }) => {
@@ -90,8 +97,20 @@ export const useStore = create((set, get) => ({
       }
 
     },
+    addInstance(instancedData) {
+      const { instanceName } = instancedData
+      set(({ ObjectsRef }) => {
+        return ({ ObjectsRef: { ...ObjectsRef, [instanceName]: { ...instancedData } } })
+      })
+    }
 
 
+  },
+
+  //Store references for let gsap drive animation
+  setRef({ item, ref }) {
+
+    set(({ ObjectsRef }) => ({ ObjectRef: { ...ObjectsRef, [item]: ref } }))
 
   }
 }
@@ -106,19 +125,54 @@ if (process.env.NODE_ENV === 'development') {
   mountStoreDevtool('Store', useStore)
 }
 
+
 /*
-const loader = new GLTFLoader()
-const dracoLoader = new DRACOLoader()
-dracoLoader.setDecoderPath('/libs/draco/')
-loader.setDRACOLoader(dracoLoader)
-modelsArray.map((model) => {
-  loader.load(model.url,
-    (modelLoaded) => {
-      const childrens = modelLoaded.scene.children
-      const totalChildren = childrens.length
-      setLoadedModel({ key: model.key, stage: model.stage, model: childrens[totalChildren - 1] })
- 
- 
-    })
- 
-})*/
+
+addInstances({ modelName, instanceName, transformArray, amount, groupTransform }) {
+      const { scene } = get().SceneSettings
+      const model = get().ModelsState[modelName]
+      const instancedData = createInstances({ model, scene, transformArray, amount, groupTransform, instanceName })
+      set(({ instancedObjects }) => {
+        return ({ instancedObjects: { ...instancedObjects, [instanceName]: { ...instancedData } } })
+      })
+    }
+
+
+
+
+const { updateLoaded } = get().Actions
+  const modelsArray = get().ModelsArray
+
+
+
+    preloadModels() {
+      const { updateLoaded } = get().Actions
+      const modelsArray = get().ModelsArray
+      //Three loader
+      const loader = new GLTFLoader()
+      const dracoLoader = new DRACOLoader()
+      dracoLoader.setDecoderPath('/libs/draco/')
+      loader.setDRACOLoader(dracoLoader)
+      //iterate Array
+      modelsArray.map((model, index) => {
+        loader.loadAsync(`/models/${model.url}`,
+          //progress function
+          (xhr) => {
+            updateLoaded({ index: index, sizeLoaded: xhr.loaded })
+          },
+        )
+          .then((gltf) => {
+            gltf.scene.traverse(function (node) {
+
+              if (node.isMesh) {
+                node.castShadow = true
+                node.receiveShadow = true
+              }
+
+            })
+
+            updateLoaded({ index: index, isComplete: true, scene: gltf.scene, modelName: model.Model })
+          })
+      })
+    }
+    */

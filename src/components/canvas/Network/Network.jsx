@@ -23,8 +23,7 @@ export const Network = () => {
     <group position={[-2, 0, 0]}>
       <group position={[2, 0, 2.6]} >
 
-        <Clone scale={.5} object={ServerRack.scene} />
-        <primitive object={ServerRack.scene} scale={0}></primitive>
+
         {computers}
 
       </group>

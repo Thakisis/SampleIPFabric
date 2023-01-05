@@ -3,6 +3,7 @@ import { mergeRefs } from 'react-merge-refs'
 
 const Layout = forwardRef(({ children, ...props }, ref) => {
   const localRef = useRef()
+
   return (
     <div
       ref={mergeRefs([ref, localRef])}

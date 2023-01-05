@@ -23,10 +23,10 @@ export const Camera = () => {
 
         fov={25} />
       <OrbitControls
-        maxAzimuthAngle={.95}
-        minAzimuthAngle={.65}
-        minPolarAngle={1.35}
-        maxPolarAngle={1.35}
+      //        maxAzimuthAngle={.95}
+      //        minAzimuthAngle={.65}
+      //minPolarAngle={1.35}
+      //maxPolarAngle={1.35}
       />
 
     </>

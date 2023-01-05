@@ -1,12 +1,7 @@
-import { useEffect } from "react"
-import { useStore } from '@/Store'
+
 
 export function CubePreloader({ percent, ...props }) {
-  const { initPreload } = useStore(state => state.Actions)
-  useEffect(() => {
 
-    initPreload()
-  }, [initPreload])
   const size = percent <= 100 ? percent / 100 : 0
 
   return (

@@ -1202,27 +1202,27 @@
   resolved "https://registry.npmjs.org/@react-spring/types/-/types-9.5.4.tgz#6d26df992a32ea5532a1e7b732f5485857116b00"
   integrity sha512-dzcGxqL1kPKociXK+pcq5ley77cWDWiphfv8OREv8dAZS1dKDTJq1zVy7ZD5ocyMtKMZw/7AcOdIJ1H80Dp56g==
 
-"@react-three/drei@^9.46.0":
-  version "9.46.0"
-  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-9.46.0.tgz#9b6970818410fc890e99971aa290d820a17085da"
-  integrity sha512-msde3VO6HyXyFVqM1qJoGaFGUBHZy+3+sT4JTqkM4XTplmHALSglPZkcSB7z2gENoScMnHwF3a3MPl/v0AGgLA==
+"@react-three/drei@^9.51.1":
+  version "9.51.1"
+  resolved "https://registry.yarnpkg.com/@react-three/drei/-/drei-9.51.1.tgz#7339b72cddf8035d5bd1edc8ad9e40ef403e0841"
+  integrity sha512-2mjzXIdDNo1kgsCZsnJ0mIY6kyYYCENlnjTIYBFO1F9TfdBArIZnb1op7ogtNgjRysDQ/Ut7nWyI2xgD68+/Wg==
   dependencies:
     "@babel/runtime" "^7.11.2"
     "@react-spring/three" "^9.3.1"
     "@use-gesture/react" "^10.2.0"
-    detect-gpu "^4.0.36"
+    detect-gpu "^5.0.5"
     glsl-noise "^0.0.0"
     lodash.clamp "^4.0.3"
     lodash.omit "^4.5.0"
     lodash.pick "^4.4.0"
-    meshline "^2.0.4"
+    meshline "^3.1.6"
     react-composer "^5.0.3"
     react-merge-refs "^1.1.0"
     stats.js "^0.17.0"
     suspend-react "^0.0.8"
-    three-mesh-bvh "^0.5.15"
-    three-stdlib "^2.18.1"
-    troika-three-text "^0.46.4"
+    three-mesh-bvh "^0.5.21"
+    three-stdlib "^2.20.4"
+    troika-three-text "^0.47.1"
     utility-types "^3.10.0"
     zustand "^3.5.13"
 
@@ -1239,6 +1239,16 @@
     scheduler "^0.21.0"
     suspend-react "^0.0.8"
     zustand "^3.7.1"
+
+"@react-three/postprocessing@^2.7.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@react-three/postprocessing/-/postprocessing-2.7.0.tgz#bae6be248bdb43cbab3d125b23ba5b0de4d934d2"
+  integrity sha512-lJfV8GYp+L1SlGRcl8QPUg9QMdO+8ojW2kfaEc/MuvoI4rX3TRhVd3qFjjF++0bBmzt8LeQpDHCOHFAaT3MNYA==
+  dependencies:
+    postprocessing "^6.29.0"
+    react-merge-refs "^1.1.0"
+    screen-space-reflections "2.5.0"
+    three-stdlib "^2.8.11"
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"
@@ -2068,10 +2078,10 @@ del@^4.1.1:
     pify "^4.0.1"
     rimraf "^2.6.3"
 
-detect-gpu@^4.0.36:
-  version "4.0.40"
-  resolved "https://registry.npmjs.org/detect-gpu/-/detect-gpu-4.0.40.tgz#b3ee451a4f476a64eb55044e2f433a1f249b684b"
-  integrity sha512-8mHf0n0UzBivHU9Ls8RInGrUOzEJJBXDvjia4oACB+qm0b3FX6PFHpVL/+MPnL4XQqhPCopEnNi0YLy1MqQF4g==
+detect-gpu@^5.0.5:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/detect-gpu/-/detect-gpu-5.0.5.tgz#92eb6f218ba578dac6a4a892c8a1214ef0bdcf88"
+  integrity sha512-gKBKx8mj0Fi/8DnjuzxU+aNYF1yWvPxtiOV9o72539wW0HP3ZTJVol/0FUasvdxIY1Bhi19SwIINqXGO+RB/sA==
   dependencies:
     webgl-constants "^1.1.1"
 
@@ -3077,6 +3087,11 @@ grapheme-splitter@^1.0.4:
   resolved "https://registry.npmjs.org/grapheme-splitter/-/grapheme-splitter-1.0.4.tgz#9cf3a665c6247479896834af35cf1dbb4400767e"
   integrity sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ==
 
+gsap@^3.11.4:
+  version "3.11.4"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.11.4.tgz#e6d972d3509a7431b86d81d6fc3bbeb6862e5ff1"
+  integrity sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==
+
 gzip-size@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmjs.org/gzip-size/-/gzip-size-6.0.0.tgz#065367fd50c239c0671cbcbad5be3e2eeb10e462"
@@ -3631,6 +3646,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+maath@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/maath/-/maath-0.5.1.tgz#7e190ee69053d4e04125f399f73d4e63f1b94e05"
+  integrity sha512-qSyiavNFnB957lGQiGvHr+fEgG3ZXrk2upniCAAMsZb54NaZfMLMFakHqp+22OKlix5UNwYqJ8vFeO4hAq0U1Q==
+
 magic-string@^0.25.0, magic-string@^0.25.7:
   version "0.25.9"
   resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.25.9.tgz#de7f9faf91ef8a1c91d02c2e5314c8277dbcdd1c"
@@ -3662,10 +3682,10 @@ merge2@^1.3.0, merge2@^1.4.1:
   resolved "https://registry.npmjs.org/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
-meshline@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/meshline/-/meshline-2.0.4.tgz#39c7bcf36b503397642f2312e6211f2a8ecf75c5"
-  integrity sha512-Jh6DJl/zLqA4xsKvGv5950jr2ukyXQE1wgxs8u94cImHrvL6soVIggqjP+2hVHZXGYaKnWszhtjuCbKNeQyYiw==
+meshline@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/meshline/-/meshline-3.1.6.tgz#eee67d9b0fd9841652cc1dc2d3833093ae8e68ca"
+  integrity sha512-8JZJOdaL5oz3PI/upG8JvP/5FfzYUOhrkJ8np/WKvXzl0/PZ2V9pqTvCIjSKv+w9ccg2xb+yyBhXAwt6ier3ug==
 
 micromatch@^4.0.4, micromatch@^4.0.5:
   version "4.0.5"
@@ -4130,6 +4150,11 @@ postcss@^8.4.17, postcss@^8.4.18:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
+postprocessing@^6.29.0:
+  version "6.29.3"
+  resolved "https://registry.yarnpkg.com/postprocessing/-/postprocessing-6.29.3.tgz#a878b2e60ef0402193e782e9580e90516a10f1f8"
+  integrity sha512-gxXC6LKLRwI4eSySdmxqEfQBMKEdQtxg5aYrdvJ/tPHDOS4aZAb/bY4ulQnL5YGKqCC6SmgNmU4dNIc68TTVMw==
+
 potpack@^1.0.1:
   version "1.0.2"
   resolved "https://registry.npmjs.org/potpack/-/potpack-1.0.2.tgz#23b99e64eb74f5741ffe7656b5b5c4ddce8dfc14"
@@ -4532,6 +4557,11 @@ schema-utils@^3.0.0, schema-utils@^3.1.1:
     "@types/json-schema" "^7.0.8"
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
+
+screen-space-reflections@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/screen-space-reflections/-/screen-space-reflections-2.5.0.tgz#2a6ea982da96f9c35f34a361b2555439f9fbb1f6"
+  integrity sha512-fWSDMhJS0xwD3LTxRRch7Lb9NzxsR66sCmtDmAA7i+OGnghUrBBsrha85ng7StnCBaLq/BKmZ97dLxWd1XgWdQ==
 
 semver@^5.5.0, semver@^5.5.1:
   version "5.7.1"
@@ -4938,10 +4968,15 @@ text-table@^0.2.0:
   resolved "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
 
-three-mesh-bvh@^0.5.15:
-  version "0.5.16"
-  resolved "https://registry.npmjs.org/three-mesh-bvh/-/three-mesh-bvh-0.5.16.tgz#ed8518355fb70d7da6a5537558ba43f76a56b067"
-  integrity sha512-kN3QGKJNiQQcuiOsjVIkjtPnV3PJa+0Orih2E52afa+kQfs3zfoYt6Kxn6b6RNiAfaQ+7ckwPK0mTVFVl2F2LA==
+three-instanced-group-mesh@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/three-instanced-group-mesh/-/three-instanced-group-mesh-1.0.2.tgz#6cd01fd47d8848e7ec09a1b8f3cf2ddcc11a0992"
+  integrity sha512-0b2NPm3j4swMc9cVFtkbZu57RUcNkKrF+0x8DfJiNHNKPPCzhIsGtfWEfXhZZBiEXmihJkoD6ZC/0vzuYY3AjA==
+
+three-mesh-bvh@^0.5.21:
+  version "0.5.21"
+  resolved "https://registry.yarnpkg.com/three-mesh-bvh/-/three-mesh-bvh-0.5.21.tgz#e08f5f3052d624cce36d0975692949c02359832f"
+  integrity sha512-TGXPk7YwtlU5rgQJYA25OT6yAdBMeekfC4BTkGNtTWA5glb2rmEpjxvhZncRQSl73QZir2LFOQT0FjfzgG55xw==
 
 three-stdlib@^2.17.3:
   version "2.17.3"
@@ -4960,10 +4995,27 @@ three-stdlib@^2.17.3:
     potpack "^1.0.1"
     zstddec "^0.0.2"
 
-three-stdlib@^2.18.1:
-  version "2.20.2"
-  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.20.2.tgz#91ad61710db11666b2edba6649f62e21b8d8ea8f"
-  integrity sha512-e7QyYf9oKBtnWL8AYcDUuNG11s+aWZjExJ/zvXx63Ng2V93m2kS2EmfLt90QmouWjfmamegXx9g6qULjuAlhEg==
+three-stdlib@^2.20.4:
+  version "2.21.4"
+  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.21.4.tgz#e977735dea667f04854d93c621403c5dff4a2766"
+  integrity sha512-DFieGFahnJk39mZEmDsgHyPleMRw0efD6DeNWFFeG/0dcTTaYutbFrfoBO5xZTlz7nuCdXP7VDNXx04Uk7ty4Q==
+  dependencies:
+    "@babel/runtime" "^7.16.7"
+    "@types/offscreencanvas" "^2019.6.4"
+    "@webgpu/glslang" "^0.0.15"
+    chevrotain "^10.1.2"
+    draco3d "^1.4.1"
+    fflate "^0.6.9"
+    ktx-parse "^0.4.5"
+    mmd-parser "^1.0.4"
+    opentype.js "^1.3.3"
+    potpack "^1.0.1"
+    zstddec "^0.0.2"
+
+three-stdlib@^2.8.11:
+  version "2.21.5"
+  resolved "https://registry.yarnpkg.com/three-stdlib/-/three-stdlib-2.21.5.tgz#d7a8ae6713d6c9193a06f81e181b7f4fcf6f8570"
+  integrity sha512-PzlbMFVApPjdFwNoTCnrH6r8J1rQw5Dn40qkHc8P+vVDj1czHOmCduYAA27bYwNNTcd+q3AWE+qutDrvvc5B2g==
   dependencies:
     "@babel/runtime" "^7.16.7"
     "@types/offscreencanvas" "^2019.6.4"
@@ -5039,25 +5091,25 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-troika-three-text@^0.46.4:
-  version "0.46.4"
-  resolved "https://registry.npmjs.org/troika-three-text/-/troika-three-text-0.46.4.tgz#77627ac2ac4765d5248c857a8b42f82c25f2d034"
-  integrity sha512-Qsv0HhUKTZgSmAJs5wvO7YlBoJSP9TGPLmrg+K9pbQq4lseQdcevbno/WI38bwJBZ/qS56hvfqEzY0zUEFzDIw==
+troika-three-text@^0.47.1:
+  version "0.47.1"
+  resolved "https://registry.yarnpkg.com/troika-three-text/-/troika-three-text-0.47.1.tgz#4a239b122242d7ea93dbbf66a9f1863eca83d979"
+  integrity sha512-/fPRUmxCkXxyUT8k6REC/aWeFzKbNr37ivrkrplSJNb3JcBUXvVt8MT0Ac5wTUvFsYTviYWprYS4/8Laen08WA==
   dependencies:
     bidi-js "^1.0.2"
-    troika-three-utils "^0.46.0"
-    troika-worker-utils "^0.46.0"
+    troika-three-utils "^0.47.0"
+    troika-worker-utils "^0.47.0"
     webgl-sdf-generator "1.1.1"
 
-troika-three-utils@^0.46.0:
-  version "0.46.0"
-  resolved "https://registry.npmjs.org/troika-three-utils/-/troika-three-utils-0.46.0.tgz#6d97a9bf08f2260285edf2bb0be6328dd3d50eec"
-  integrity sha512-llHyrXAcwzr0bpg80GxsIp73N7FuImm4WCrKDJkAqcAsWmE5pfP9+Qzw+oMWK1P/AdHQ79eOrOl9NjyW4aOw0w==
+troika-three-utils@^0.47.0:
+  version "0.47.0"
+  resolved "https://registry.yarnpkg.com/troika-three-utils/-/troika-three-utils-0.47.0.tgz#4749334ad2ae043767916f79bcc365cbb5ea64b5"
+  integrity sha512-yoVTQxVbpQX3a55giIwqwq6hyJA6oYvq7kaNGwFTeicoWmTZCqqTbytafx1gcuL5umrtw5MYgsxYUSOha+xp5w==
 
-troika-worker-utils@^0.46.0:
-  version "0.46.0"
-  resolved "https://registry.npmjs.org/troika-worker-utils/-/troika-worker-utils-0.46.0.tgz#1b698090af78b51a27e03881c90237a2e648d6c4"
-  integrity sha512-bzOx5f2ZBxkFhXtIvDJlLn2AI3bzCkGVbCndl/2dL5QZrwHEKl45OEIilCxYQQWJG1rEbOD9O80tMjoYjw19OA==
+troika-worker-utils@^0.47.0:
+  version "0.47.0"
+  resolved "https://registry.yarnpkg.com/troika-worker-utils/-/troika-worker-utils-0.47.0.tgz#bea382fee55333e177955e7ba6497d64b9d9388d"
+  integrity sha512-PSUc9vunDEkbE23jpgXD3PcF96jQHKjgMjS+4o5g6DEK/ZAPTnldb+FNddhppawfUcuraMFrslo0GmIC8UpEmA==
 
 tsconfig-paths@^3.14.1:
   version "3.14.1"

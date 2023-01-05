@@ -1,6 +1,6 @@
 
 import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, Environment, PerspectiveCamera } from '@react-three/drei'
+import { Environment } from '@react-three/drei'
 import { Shared } from './Shared'
 import { Camera } from './Camera'
 import { Perf } from 'r3f-perf'
@@ -10,15 +10,32 @@ export default function Scene({ children, ...props }) {
   const freecamera = 1
 
   return (
-    <Canvas shadows  >
+    <Canvas shadows shadowMap>
       <Camera></Camera>
+
+
+      <ambientLight intensity={0.1} />
+      <directionalLight
+        intensity={0.5}
+        castShadow
+        shadow-mapSize-height={1024}
+        shadow-mapSize-width={1024}
+      />
       <Shared />
 
       <mesh castShadow position={[0, .25, 1]}>
         <sphereGeometry args={[0.25, 64, 64]} />
-        <meshStandardMaterial color="lightblue" />
+        <meshStandardMaterial
+          opacity={1} //
+
+          roughness={0.1}
+          color={0x030303}
+          metalness={1}
+
+        />
       </mesh>
-      <Environment preset="city" />
+      <Environment preset='city' />
+
       <Perf></Perf>
     </Canvas >
   )
@@ -26,10 +43,7 @@ export default function Scene({ children, ...props }) {
 
 
 /* ********************************
-
-<Html zIndexRange={[0, 0]} prepend transform distanceFactor={0.8}>
-
-            <iframe width={1500} height={1000} src="https://www.youtube.com/embed/IecHwt_N_70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </Html>
+<Environment preset="city" />
+      
 
           */

@@ -99,7 +99,7 @@ export function setTransform(transformArray) {
 
 
 //get coordinates and rotation of  a group of pc 
-export function getNetworkTransform({ amount, distance = 1, angle = 0, angledelta = 0, scale = .5, scaledelta = 0 }) {
+export function getNetworkTransform({ amount, distance = 0, angle = 0, angledelta = 0, scale = 0, scaledelta = 0 }) {
   const transformArray = new Array(amount).fill(0).map((value, index) => {
     const positionX = distance * Math.sin(Math.PI * 2 / amount * index)
     const positionY = distance * Math.cos(Math.PI * 2 / amount * index)
@@ -108,10 +108,10 @@ export function getNetworkTransform({ amount, distance = 1, angle = 0, angledelt
 
   return transformArray
 }
-export function getNetworkMatrix({ amount, distance = 1, angle = 0, angledelta = 0, scale = .5, scaledelta = 0 }) {
+export function getNetworkMatrix({ amount, distance = 1, anglegroup = 0, angle = 0, angledelta = 0, scale = .5, scaledelta = 0 }) {
   const matrixArray = new Array(amount).fill(0).map((value, index) => {
-    const positionX = distance * Math.sin(Math.PI * 2 / amount * index)
-    const positionY = distance * Math.cos(Math.PI * 2 / amount * index)
+    const positionX = distance * Math.sin(Math.PI * 2 / amount * index + Math.PI * anglegroup)
+    const positionY = distance * Math.cos(Math.PI * 2 / amount * index + Math.PI * anglegroup)
     const transform = {
       position: [positionX, 0, positionY],
       rotation: [0, angle + angledelta * index + Math.PI * 2 / amount * index, 0],

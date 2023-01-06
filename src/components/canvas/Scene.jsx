@@ -10,7 +10,7 @@ export default function Scene({ children, ...props }) {
   const freecamera = 1
 
   return (
-    <Canvas shadows shadowMap>
+    <Canvas shadows shadowmap>
       <Camera></Camera>
 
 

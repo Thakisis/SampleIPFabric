@@ -1,4 +1,4 @@
-
+import { useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { GridFloor } from './GridFloor'
 import { Environment } from '@react-three/drei'
@@ -10,6 +10,7 @@ import { LightEffect } from './LightEffect'
 import IPlogo from './Iplogo'
 
 export default function Scene({ children, ...props }) {
+  const [lights, setLights] = useState(false)
   // Everything defined in here will persist between route changes, only children are swapped
 
 
@@ -17,11 +18,14 @@ export default function Scene({ children, ...props }) {
     <Canvas shadows>
       <Camera></Camera>
 
-      <IPlogo></IPlogo>
+      <IPlogo lights={lights}></IPlogo>
 
       <GridFloor />
 
-      <mesh castShadow position={[0, .25, 1]}>
+      <mesh castShadow position={[0, .25, 1]}
+
+        onClick={() => setLights(!lights)}
+      >
         <sphereGeometry args={[0.25, 64, 64]} />
         <meshStandardMaterial
           opacity={1} //

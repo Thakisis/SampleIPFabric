@@ -75,7 +75,7 @@ export const SvgFiles =
     {
 
       name: "light1",
-      materialprops: { color: 0xffffff },
+      materialName: "neonP",
       depth: .1,
       position: [0, 0, 1.7],
       code: `    
@@ -89,7 +89,7 @@ export const SvgFiles =
     {
 
       name: "light2",
-      materialprops: { color: 0xffffff },
+      materialName: "neonP",
       depth: .1,
       position: [0, 0, -1.9],
       code: `    
@@ -103,7 +103,7 @@ export const SvgFiles =
     {
 
       name: "circledash1",
-      materialprops: { color: 0xffffff },
+      materialName: "neonG",
       depth: .05,
       position: [0, 0, 2.5],
       code: `    
@@ -117,7 +117,7 @@ export const SvgFiles =
     {
 
       name: "circledash2",
-      materialprops: { color: 0xffffff },
+      materialName: "neonG",
       depth: .05,
       position: [0, 0, 2.5],
       code: `    
@@ -131,8 +131,8 @@ d="m 147.29905,131.66874 -0.0129,0.82097 c 1.30199,0.0209 2.60044,0.22098 3.8468
     ,
     {
 
-      name: "circledash1b",
-      materialprops: { color: new THREE.Color(1, 1, 60) },
+      name: "circledash3",
+      materialName: "neonG",
       depth: .05,
       position: [0, 0, -2.6],
       code: `    
@@ -145,8 +145,8 @@ d="m 147.29905,131.66874 -0.0129,0.82097 c 1.30199,0.0209 2.60044,0.22098 3.8468
     },
     {
 
-      name: "circledash2b",
-      materialprops: { color: 0xffffff },
+      name: "circledash4",
+      materialName: "neonG",
       depth: .05,
       position: [0, 0, -2.6],
       code: `    

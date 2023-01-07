@@ -12,13 +12,53 @@ export default function IPlogo(props) {
   const { scene } = useThree()
   const [meshes, setMeshes] = useState()
   const tmRef = useRef()
+
+  const { lights } = props
+
+
+  useFrame((state, delta) => {
+    if (!materials["neonP"])
+      return
+    const neonP = materials["neonP"]
+    const neonG = materials["neonG"]
+
+    if (!lights) {
+      neonP.color.setRGB(.5, .5, .5)
+      neonG.color.setRGB(.5, .5, .5)
+      return
+    }
+    const t = (Math.abs(Math.sin(state.clock.elapsedTime * 1.4)))
+
+    neonP.color.setRGB(t * 5, t * 5, t * 80)
+    neonG.color.setRGB((1 - t) * 80, (1 - t) * 80, (1 - t) * 80)
+
+    if (!meshes)
+      return
+    [1, 2, 3, 4].map((value) => {
+      const spinner = meshes.getObjectByName(`circledash${value}`)
+
+      //spinner.rotation.x += 1
+    })
+    //stripe2.current.color.setRGB(1 + t * 10, 2, 20 + t * 50)
+    //light2.current.intensity = 1 + t * 2
+    //light.current.intensity = 1 + t * 2
+  })
+
   useEffect(() => {
     if (!scene || !materials || !tmRef.current) return
+    const NeonP = new THREE.MeshStandardMaterial({ color: "white" })
 
+    NeonP.toneMapped = false
+    const NeonG = new THREE.MeshStandardMaterial({ color: "white" })
+    NeonG.toneMapped = false
+    if (!materials['tm']) {
+      materials['tm'] = tmRef.current
+      materials["neonP"] = NeonP
+      materials["neonG"] = NeonG
+    }
     const prim = createSVG(scene, materials)
-    materials['tm'] = tmRef.current
     setMeshes(prim)
-  }, [scene, materials])
+  }, [scene, materials,])
 
   const config = {
     samples: 16,
@@ -41,13 +81,29 @@ export default function IPlogo(props) {
 
   return (
     <>
+
       {meshes ? <primitive object={meshes} ></primitive> : undefined}
       <group  {...props} dispose={null} rotation={[Math.PI / 2, 0, 0]} position={[10, 0, 0]}>
 
+
+        <mesh castShadow position={[0, 2, 1]}>
+          <sphereGeometry args={[0.25, 64, 64]} />
+          <meshStandardMaterial
+            opacity={1} //
+
+            roughness={0.1}
+            color={0xffffff}
+            metalness={1}
+
+          />
+        </mesh>
         <mesh geometry={nodes.Cube001.geometry} material={nodes.Cube001.material} position={[-2.34, -0.21, 1000.14]} scale={[0, 0, 0]} >
           <MeshTransmissionMaterial ref={tmRef} {...config}></MeshTransmissionMaterial>
         </mesh>
 
+        <mesh geometry={nodes.Cube001.geometry} material={nodes.Cube001.material} position={[-2.34, -0.21, 1000.14]} scale={[0, 0, 0]} >
+
+        </mesh>
 
       </group>
     </>
@@ -67,7 +123,7 @@ export function createSVG(scene, materials) {
       material = materials[svgfile.materialName]
       if (svgfile.materialName === "whiteMetal") {
 
-        console.log(material)
+
       }
 
     }
@@ -77,6 +133,10 @@ export function createSVG(scene, materials) {
 
     svgData.paths.forEach((path, i) => {
       const shapes = SVGLoader.createShapes(path)
+
+      const groupShape = new THREE.Group({ name: svgfile.name })
+      groupShape.name = `${svgfile.name}1,i`
+
       shapes.forEach((shape, j) => {
         const geometry = new THREE.ExtrudeGeometry(shape, {
           depth: svgfile.depth,
@@ -91,12 +151,15 @@ export function createSVG(scene, materials) {
           mesh.position.set(0, 0, -1 * svgfile.depth / 2)
         }
         mesh.material.needsUpdate = true
-        svgGroup.add(mesh)
+        mesh.name = `${svgfile.name}${i}`
+        groupShape.add(mesh)
+
       })
+      svgGroup.add(groupShape)
     })
     svgGroup.rotation.set(0, 0, 0)
     svgGroup.scale.set(-.0065, .0065, 0.08)
-
+    console.log(svgGroup)
   })
   return svgGroup
 }

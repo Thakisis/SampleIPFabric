@@ -61,7 +61,7 @@ export const SvgFiles =
       name: "center",
 
       materialName: "tm",
-      materialprops: { clearcoat: 1.0, clearcoatRoughness: 0.1, metalness: 0.9, roughness: 0.5, color: 0xffffff, },
+
       depth: 3.5,
 
       code: `    

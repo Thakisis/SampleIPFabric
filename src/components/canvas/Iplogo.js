@@ -44,7 +44,9 @@ export default function IPlogo(props) {
       {meshes ? <primitive object={meshes} ></primitive> : undefined}
       <group  {...props} dispose={null} rotation={[Math.PI / 2, 0, 0]} position={[10, 0, 0]}>
 
-
+        <mesh geometry={nodes.Cube001.geometry} material={nodes.Cube001.material} position={[-2.34, -0.21, 1000.14]} scale={[0, 0, 0]} >
+          <MeshTransmissionMaterial ref={tmRef} {...config}></MeshTransmissionMaterial>
+        </mesh>
 
 
       </group>
@@ -104,9 +106,7 @@ export function createSVG(scene, materials) {
 /*
 
  <group {...props} dispose={null}>
-          <mesh geometry={nodes.Cube001.geometry} material={nodes.Cube001.material} position={[-2.34, -0.21, 0.14]} >
-            <MeshTransmissionMaterial ref={tmRef} {...config}></MeshTransmissionMaterial>
-          </mesh>
+        
           <mesh geometry={nodes.Cube.geometry} material={nodes.Cube.material} />
           <mesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} position={[-1.78, 0.53, 5.75]} />
           <mesh geometry={nodes.Sphere001.geometry} material={nodes.Sphere001.material} position={[0.62, 0.53, 5.75]} />

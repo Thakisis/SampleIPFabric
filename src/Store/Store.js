@@ -83,7 +83,7 @@ export const useStore = create((set, get) => ({
       //update total loaded bytes
       set(({ PreloadState, ModelsArray }) => {
 
-        console.log(ModelsArray)
+
         return ({
           preloadState: {
             ...PreloadState, ...ModelsArray.reduce((acum, model) => {

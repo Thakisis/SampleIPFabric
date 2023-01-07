@@ -1,5 +1,5 @@
 import { Grid } from '@react-three/drei'
-export function Floor() {
+export function GridFloor() {
   const size = 30
   const { gridSize, ...gridConfig } = {
     gridSize: [10.5, 10.5],

@@ -21,7 +21,7 @@ export function addAnimation(Objects) {
 
 }
 export function animate(Objects) {
-  let tl = gsap.timeline({ repeat: -1, repeatDelay: 0 })
+  let tl = gsap.timeline({ repeat: 100, repeatDelay: 0 })
   const { amount, group, instancedModel, transformArray } = Objects['Network1']
   //tl.to(group, { rotation: [0, Math.PI * 2, 0], duration: 2 })
 

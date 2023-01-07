@@ -1,27 +1,25 @@
 
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
+import { GridFloor } from './GridFloor'
 import { Environment } from '@react-three/drei'
 import { Shared } from './Shared'
 import { Camera } from './Camera'
 import { Perf } from 'r3f-perf'
+import { LightEffect } from './LightEffect'
+
+import IPlogo from './Iplogo'
 
 export default function Scene({ children, ...props }) {
   // Everything defined in here will persist between route changes, only children are swapped
-  const freecamera = 1
+
 
   return (
-    <Canvas shadows shadowmap>
+    <Canvas shadows>
       <Camera></Camera>
 
+      <IPlogo></IPlogo>
 
-      <ambientLight intensity={0.1} />
-      <directionalLight
-        intensity={0.5}
-        castShadow
-        shadow-mapSize-height={1024}
-        shadow-mapSize-width={1024}
-      />
-      <Shared />
+      <GridFloor />
 
       <mesh castShadow position={[0, .25, 1]}>
         <sphereGeometry args={[0.25, 64, 64]} />
@@ -34,7 +32,9 @@ export default function Scene({ children, ...props }) {
 
         />
       </mesh>
-      <Environment preset='city' />
+
+      <LightEffect></LightEffect>
+
 
       <Perf></Perf>
     </Canvas >

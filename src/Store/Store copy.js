@@ -36,7 +36,7 @@ export const useStore = create((set, get) => ({
       //init load models
       const { updateLoaded } = get().Actions
       const modelsArray = get().ModelsArray
-      loadModels({ modelsArray, onUpdateLoaded: updateLoaded })
+      //loadModels({ modelsArray, onUpdateLoaded: updateLoaded })
     },
     initScene(scene) {
       const addInstance = get().Actions.addInstance
@@ -79,40 +79,14 @@ export const useStore = create((set, get) => ({
         return { ModelsArray: [...ModelsArray.slice(0, index), { ...updatedModel }, ...ModelsArray.slice(index + 1)] }
       })
 
-
       //update total loaded bytes
-      set(({ PreloadState, ModelsArray }) => {
-
-        console.log(ModelsArray)
-        return ({
-          preloadState: {
-            ...PreloadState, ...ModelsArray.reduce((acum, model) => {
-
-              const { stages } = acum
-              const { stage } = model
-              const newStages = {
-
-                ...stages, [stage]: {
-                  ...stages[stage],
-                  loadedSize: stages[stage].loadedSize + model.loaded,
-                  loadedFiles: model.isLoaded ? stages[stage].loadedFiles + 1 : stages[stage].loadedFiles,
-                }
-
-                //  { totalFiles: 1, loadedFiles: 0, filesSize: element.modelSize, loadedSize: 0 }
-              }
-
-              return ({
-                totalLoaded: acum.totalLoaded + model.loaded,
-                loadedItems: model.isLoaded ? acum.loadedItems + 1 : acum.loadedItems,
-                stages: newStages
-              }
-              )
-
-            }, { totalLoaded: 0, loadedItems: 0, stages: PreloadState.stages })
-          }
-        })
-
-      })
+      set(({ PreloadState, ModelsArray }) => ({
+        PreloadState: {
+          ...PreloadState, ...ModelsArray.reduce((acum, model) =>
+            acum = { totalLoaded: acum.totalLoaded + model.loaded, loadedItems: model.isLoaded ? acum.loadedItems + 1 : acum.loadedItems },
+            { totalLoaded: 0, loadedItems: 0 })
+        }
+      }))
 
       // mark model as complete
       if (isComplete) {

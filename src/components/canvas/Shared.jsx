@@ -1,11 +1,17 @@
 import { Suspense, useEffect } from 'react'
-import { useThree } from '@react-three/fiber'
+import { useThree, extend } from '@react-three/fiber'
 import { CubePreloader } from './CubePreloader'
 import { Network } from './Network'
 import { useStore } from '@/Store'
 import { EffectComposer, Bloom } from '@react-three/postprocessing'
+
 import IPlogo from './Iplogo'
-import { Floor } from './Floor'
+import IPlogo2 from './Iplogo2'
+
+
+
+
+
 
 export function Shared(props) {
 
@@ -31,21 +37,17 @@ export function Shared(props) {
       <Network />
       <Suspense fallback={undefined}>
         <IPlogo></IPlogo>
+
       </Suspense>
 
 
 
-      <EffectComposer disableNormalPass>
-        <Bloom luminanceThreshold={1} mipmapBlur />
-      </EffectComposer>
 
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
         <planeGeometry args={[100, 100]} />
         <shadowMaterial transparent opacity={0.4} />
       </mesh>
-      <Suspense>
-        <Floor></Floor>
-      </Suspense>
+
     </>
   )
 

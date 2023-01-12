@@ -32,6 +32,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-merge-refs": "^2.0.1",
+    "sass": "^1.57.1",
     "simple-zustand-devtools": "^1.1.0",
     "three": "^0.146.0",
     "three-instanced-group-mesh": "^1.0.2",

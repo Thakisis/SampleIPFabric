@@ -2,25 +2,28 @@ export const Models = [
   {
     modelName: 'Materials',
     modelFile: 'Materials.glb',
-    modelSize: 1200,
-    stage: "s0"
+    sizeTotal: 78124,
+    stage: 0
+
   },
   {
     modelName: 'Computer',
     modelFile: 'ComputerNetwork.glb',
-    modelSize: 76516,
-    stage: "s1"
+    sizeTotal: 76516,
+    stage: 1
+
   },
   {
     modelName: 'ServerRack',
     modelFile: 'ServerRack.glb',
-    modelSize: 32808,
-    stage: "s1"
-  }, {
+    sizeTotal: 32808,
+    stage: 1
+  },
+  {
     modelName: 'MicrosoftStudio',
     modelFile: 'MicrosoftStudio.glb',
-    modelSize: 388556,
-    stage: "s2"
-  },
+    sizeTotal: 388556,
+    stage: 2
+  }
 ]
 

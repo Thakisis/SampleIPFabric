@@ -1,5 +1,5 @@
 
-const IPFabricPaths = {
+const ipLogoPaths = {
   openTag: `<svg width="20px" height="20px" viewBox="0 0 202 202" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">`,
   closeTag: `</svg>`,
   svgList: [
@@ -58,7 +58,7 @@ const IPFabricPaths = {
     ,
     {
       name: "center",
-      materialName: "glass",
+      materialName: "Glass",
       depth: 3.5,
       code: `    
         <path
@@ -157,4 +157,4 @@ d="m 147.29905,131.66874 -0.0129,0.82097 c 1.30199,0.0209 2.60044,0.22098 3.8468
     }
   ]
 }
-export const SvgPaths = { IPFabric: IPFabricPaths }
+export const SvgPaths = { IPFabric: ipLogoPaths }

@@ -17,12 +17,12 @@ export function addAnimation(Objects) {
   //tl.to(group.rotation, { y: Math.PI * 2, duration: 2 })
   //console.log(Objects)
   //gsap.set(plane.position, { x: 80, y: -32, z: -60 });
-  animNetwork(Objects, tl)
+  //animNetwork(Objects, tl)
 
 }
 export function animate(Objects) {
   let tl = gsap.timeline({ repeat: 100, repeatDelay: 0 })
-  const { amount, group, instancedModel, transformArray } = Objects['Network1']
+  //const { amount, group, instancedModel, transformArray } = Objects['Network1']
   //tl.to(group, { rotation: [0, Math.PI * 2, 0], duration: 2 })
 
   //console.log(Objects)
@@ -39,7 +39,6 @@ function animNetwork(Objects, tl) {
 
 
   const old = { distance: 0, anglegroup: -  Math.PI * 2, angle: 0, angledelta: -2, scale: 0, scaledelta: .1 }
-  console.log(instancedModel)
   new Array(amount).fill(0).map((index) => {
     gsap.to(old, {
       distance: 1, angle: Math.PI * 4, anglegroup: 0, angledelta: 0, scale: .5, scaledelta: 0,

@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
+import { styles } from '@/styles/Home.module.scss'
 
 // Dynamic import is used to prevent a payload when the website starts, that includes threejs, r3f etc..
 // WARNING ! errors might get obfuscated by using dynamic import.
@@ -9,26 +9,12 @@ const Logo = dynamic(() => import('@/components/canvas/Logo'), { ssr: false })
 
 // Dom components go here
 export default function Page(props) {
-  useEffect(() => {
 
-
-
-    const domain = 'ladystorm.ddns.net'
-    const cookies = document.cookie.split(";")
-    for (let i = 0; i < cookies.length; i++) {
-
-      const cookie = cookies[i].trim()
-      console.log('cookie')
-      document.cookie = `${cookie}=;domain=${domain}; expires=Thu, 01 Jan 1980 00:00:00 GMT`
-      //window.location.replace("https://www.tpeoficial.com/?by=tpeoficial/clear/cookies-deleted")
-      //document.cookie = `foo=bar;domain=${domain};`
-    }
-
-
-
-  })
   return (
-    <>a </>
+    <div >
+
+    </div>
+
   )
 }
 

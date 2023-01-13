@@ -10,14 +10,14 @@ import { PreloadModels } from './PreloadModels'
 import { LightEffect } from './LightEffect'
 import { GetScene } from './GetScene'
 export default function Scene({ children, ...props }) {
-  const progress = useProgress()
+  const progressData = useProgress()
   const { updateProgress } = useStore(state => state.Actions)
   const { scene } = useStore(state => state.ThreeParams)
 
   useEffect(() => {
 
-    updateProgress({ progress })
-  }, [progress, updateProgress])
+    updateProgress({ progressData })
+  }, [progressData, updateProgress])
 
 
 
@@ -35,15 +35,16 @@ export default function Scene({ children, ...props }) {
     <>
 
       <Canvas shadows>
+        <LightEffect />
         {scene ?
           <Suspense fallback={<FallBackSupense notifyLoad={notifyLoad}></FallBackSupense>}>
             <Camera></Camera>
             <PreloadModels></PreloadModels>
             <GridFloor />
-            <LightEffect />
+
             <Preload all />
             <Perf></Perf>
-            <Env></Env>
+
           </Suspense>
           :
           <GetScene />

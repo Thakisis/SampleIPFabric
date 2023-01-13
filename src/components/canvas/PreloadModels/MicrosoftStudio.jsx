@@ -11,8 +11,6 @@ export default function Model(props) {
   useEffect(() => {
     addModel({ dataModel, modelName: "MicrosoftStudio" })
   }, [dataModel, addModel])
-
-
   return (
     <group ref={group} {...props} dispose={null}>
       <group ref={group} {...props} dispose={null} scale={4}>

@@ -1,3 +1,4 @@
+import { DoubleSide } from 'three'
 import { useRef, useEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useStore } from '@/Store'
@@ -5,7 +6,7 @@ import { useStore } from '@/Store'
 export default function Model(props) {
   const group = useRef()
 
-  const dataModel = useGLTF('/models/ServerRack.glb')
+  const dataModel = useGLTF('/models/ServerRackUE.glb')
   const { addModel } = useStore(state => state.Actions)
   useEffect(() => {
     addModel({ dataModel, modelName: "ServerRack" })
@@ -14,64 +15,16 @@ export default function Model(props) {
 
   return (
     <group ref={group} {...props} dispose={null} position={[2, 0, 0]}>
-      <mesh
-        geometry={nodes.Object_11.geometry}
-        material={materials.drives}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_12.geometry}
-        material={materials.green_light}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_13.geometry}
-        material={materials.red_light}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_2.geometry}
-        material={materials.button}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_3.geometry}
-        material={materials.blue_light}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_4.geometry}
-        material={materials.botton_pad}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_5.geometry}
-        material={materials.cabinet}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
-      <mesh
-        geometry={nodes.Object_6.geometry}
-        material={materials.cabinet_inside}
-        position={[-0.09, 1.35, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.9}
-      />
+      <mesh geometry={nodes.ServerRack.geometry} material={materials.drives} />
+      <mesh geometry={nodes.ServerRack_1.geometry} material={materials.green_light} />
+      <mesh geometry={nodes.ServerRack_2.geometry} material={materials.red_light} />
+      <mesh geometry={nodes.ServerRack_3.geometry} material={materials.button} />
+      <mesh geometry={nodes.ServerRack_4.geometry} material={materials.blue_light} />
+      <mesh geometry={nodes.ServerRack_5.geometry} material={materials.botton_pad} />
+      <mesh geometry={nodes.ServerRack_6.geometry} material={materials.cabinet} side={DoubleSide} />
+      <mesh geometry={nodes.ServerRack_7.geometry} material={materials.cabinet_inside} />
     </group>
   )
 }
 
-useGLTF.preload('/models/ServerRack.glb')
+useGLTF.preload('/models/ServerRackUE.glb')

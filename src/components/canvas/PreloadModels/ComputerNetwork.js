@@ -5,14 +5,6 @@ import { useStore } from '@/Store'
 export default function Model(props) {
   const group = useRef()
   const dataModel = useGLTF('/models/ComputerNetwork.glb')
-
-
-
-
-
-
-
-
   const { addModel } = useStore(state => state.Actions)
   useEffect(() => {
     addModel({ dataModel, modelName: "ComputerNetwork" })

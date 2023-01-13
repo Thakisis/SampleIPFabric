@@ -4,7 +4,7 @@ import InstancedGroupMesh from "three-instanced-group-mesh"
 import { SVGLoader } from 'three-stdlib'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader'
-
+import { GLTFExporter } from 'three/addons/exporters/GLTFExporter.js'
 
 
 
@@ -127,14 +127,14 @@ export function getNetworkMatrix({ amount, distance = 1, anglegroup = 0, angle =
 
 
 
-export function createSVGExtrude({ svgPaths, Materials }) {
+export function createSVGExtrude({ svgPaths, Materials, scene }) {
 
-  console.log(Materials)
+
   const loader = new SVGLoader()
   const geomList = {}
   const group = new THREE.Group()
   group.scale.set(-.0065, .0065, 0.08)
-  group.position.set(2, 0, 2)
+  group.position.set(0, 0, 0)
   svgPaths.svgList.map(svgPath => {
     const svgData = loader.parse(`${svgPaths.openTag}${svgPath.code}${svgPaths.closeTag}`)
 
@@ -147,9 +147,10 @@ export function createSVGExtrude({ svgPaths, Materials }) {
 
       })
       const mesh = new THREE.Mesh(geometry, Materials[svgPath.materialName])
-
+      mesh.castShadow === true
+      mesh.receiveShadow === true
       group.add(mesh)
-      let position = [-2, -2, 0]
+      let position = [0, 0, 0]
       if (svgPath.position) {
         const { position: pos } = svgPath
         position = [pos[0], pos[1], pos[2] - svgPath.depth / 2]
@@ -163,8 +164,7 @@ export function createSVGExtrude({ svgPaths, Materials }) {
 
 
   })
+
+
   return { group, geomList }
 }
-
-//svgGroup.rotation.set(0, 0, 0)
-//svgGroup.scale.set(-.0065, .0065, 0.08)

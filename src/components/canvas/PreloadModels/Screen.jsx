@@ -13,7 +13,7 @@ export default function Model(props) {
   const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true })
   const [playVideo, setPlayVideo] = useState(false)
   const group = useRef()
-  const dataModel = useGLTF('/models/Screen.glb')
+  const dataModel = useGLTF('/models/screen.glb')
   const { nodes, materials } = dataModel
   const { addModel } = useStore(state => state.Actions)
   useEffect(() => {

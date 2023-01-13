@@ -10,14 +10,14 @@ import { useStore } from '@/Store'
 
 
 export default function Model(props) {
-  const texture = playAudio ? useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true }) : undefined
+
   const [playVideo, setPlayVideo] = useState(false)
   const group = useRef()
   const dataModel = useGLTF('/models/screen.glb')
   const { nodes, materials } = dataModel
   const { addModel } = useStore(state => state.Actions)
-  useEffect(() => {
 
+  useEffect(() => {
     addModel({ dataModel, modelName: "Screen" })
   }, [dataModel, addModel])
   return (
@@ -31,10 +31,15 @@ export default function Model(props) {
       <mesh geometry={nodes.Screen.geometry} material={materials.Screen} rotation={[0, Math.PI, 0]} onClick={() => {
         setPlayVideo(true)
       }}>
-        {playVideo === true ? <meshBasicMaterial map={texture} toneMapped={false} /> : <meshPhysicalMaterial></meshPhysicalMaterial>}
+        {playVideo === true ? <audioTexture></audioTexture> : <meshPhysicalMaterial></meshPhysicalMaterial>}
       </mesh>
     </group>
   )
 }
+const audioTexture = () => {
+  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true }) : undefined
+  return (<meshBasicMaterial map={texture} toneMapped={false} />)
+}
+
 
 useGLTF.preload('/models/screen.glb')

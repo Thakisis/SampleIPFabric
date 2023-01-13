@@ -29,8 +29,6 @@ export default function Scene({ children, ...props }) {
     setLights(false)
 
   }
-  console.log(scene)
-
   return (
     <>
 

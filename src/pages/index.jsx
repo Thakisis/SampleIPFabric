@@ -27,7 +27,7 @@ export default function Page(props) {
       binary: false,
       maxTextureSize: 1024
     }
-    console.log(scene)
+
     const json = scene.children[6].toJSON()
     const output = JSON.stringify(json, null, 2)
     saveString(output, "extrude.json")
@@ -60,7 +60,7 @@ export default function Page(props) {
     const link = document.createElement('a')
     link.style.display = 'none'
     document.body.appendChild(link)
-    console.log(blob)
+
     link.href = URL.createObjectURL(blob)
     link.download = filename
     link.click()
@@ -86,7 +86,7 @@ export default function Page(props) {
 
     <div onClick={() => exportGLTF()}>
 
-      download
+
     </div>
 
   )

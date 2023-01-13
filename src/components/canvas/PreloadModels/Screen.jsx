@@ -17,6 +17,7 @@ export default function Model(props) {
   const { nodes, materials } = dataModel
   const { addModel } = useStore(state => state.Actions)
   useEffect(() => {
+
     addModel({ dataModel, modelName: "Screen" })
   }, [dataModel, addModel])
   return (

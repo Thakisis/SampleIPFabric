@@ -1,20 +1,8 @@
 import create from 'zustand'
-import { loadModels, createSVGExtrude } from './ThreeUtils'
+import { createSVGExtrude } from './ThreeUtils'
 import { SvgPaths } from './SvgPaths'
 
-// Animations js contain all animation of 3D objects
-import { animate, addAnimation } from './Animations'
 
-// list of models
-import { Models } from './Models'
-// list of SVG to extrude
-
-
-//initialize InitialState
-import { convertLoaderList, createLoaderArray, initPreloadState } from './StoreUtils'
-
-// createScene
-import { createScene } from './CreateScene'
 
 //dev tools for Zustand
 import { mountStoreDevtool } from 'simple-zustand-devtools'
@@ -28,7 +16,7 @@ export const useStore = create((set, get) => ({
   Materials: {},
   SceneSettings: {},
   Models: {},
-  animations: {},
+
   canRender: false,
   Actions: {
     //Update progress using r3f hook useProgress
@@ -58,9 +46,13 @@ export const useStore = create((set, get) => ({
 
       if (!allLoaded)
         return
+      set(({ preloadState }) => ({ preloadState: { ...preloadState, isOverlay: 2 } }))
 
+
+    },
+    allowVideo() {
+      console.log("auth")
       set(({ preloadState }) => ({ preloadState: { ...preloadState, isOverlay: 3 } }))
-
     },
     createSVGModel() {
       const { scene } = get().ThreeParams

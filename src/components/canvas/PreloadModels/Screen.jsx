@@ -10,7 +10,7 @@ import { useStore } from '@/Store'
 
 
 export default function Model(props) {
-  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true })
+  const texture = playAudio ? useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true }) : undefined
   const [playVideo, setPlayVideo] = useState(false)
   const group = useRef()
   const dataModel = useGLTF('/models/screen.glb')

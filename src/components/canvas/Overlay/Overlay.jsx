@@ -4,6 +4,8 @@ export const Overlay = ({ progress, isOverlay, loaded, total, item }) => {
   const classNames = isOverlay !== 3 ? [styles.Overlay] : [styles.Overlay, styles.fadeout]
   const { allowVideo } = useStore(state => state.Actions)
   const PlayVideo = () => {
+    const ks = new Audio('/audio/click.wav')
+    ks.play()
     allowVideo()
   }
   return (

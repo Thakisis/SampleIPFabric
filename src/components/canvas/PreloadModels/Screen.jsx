@@ -31,13 +31,13 @@ export default function Model(props) {
       <mesh geometry={nodes.Screen.geometry} material={materials.Screen} rotation={[0, Math.PI, 0]} onClick={() => {
         setPlayVideo(true)
       }}>
-        {playVideo === true ? <audioTexture></audioTexture> : <meshPhysicalMaterial></meshPhysicalMaterial>}
+        {playVideo === true ? <AudioTexture></AudioTexture> : <meshPhysicalMaterial></meshPhysicalMaterial>}
       </mesh>
     </group>
   )
 }
-const audioTexture = () => {
-  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true }) : undefined
+const AudioTexture = () => {
+  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true })
   return (<meshBasicMaterial map={texture} toneMapped={false} />)
 }
 

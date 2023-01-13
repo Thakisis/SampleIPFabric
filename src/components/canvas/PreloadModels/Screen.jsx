@@ -28,7 +28,7 @@ export default function Model(props) {
       <mesh geometry={nodes.Ring.geometry} material={nodes.Ring.material} />
       <mesh geometry={nodes.EndCapLeft.geometry} material={nodes.EndCapLeft.material} />
       <mesh geometry={nodes.EndCapRight.geometry} material={nodes.EndCapRight.material} />
-      <mesh geometry={nodes.Screen.geometry} material={materials.Screen} rotation={[0, Math.PI, 0]} onClick={() => {
+      <mesh geometry={nodes.Screen.geometry} material={materials.Screen} rotation={[Math.PI / 2, -Math.PI, 0]} position={[0, 0.1, .25]} scale={[1, -16 / 9, 9 / 16]} onClick={() => {
         setPlayVideo(true)
       }}>
         {playVideo === true ? <AudioTexture></AudioTexture> : <meshPhysicalMaterial></meshPhysicalMaterial>}
@@ -37,7 +37,7 @@ export default function Model(props) {
   )
 }
 const AudioTexture = () => {
-  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true })
+  const texture = useVideoTexture("/videos/IPFabric.mp4", { muted: false, start: true, loop: false })
   return (<meshBasicMaterial map={texture} toneMapped={false} />)
 }
 
